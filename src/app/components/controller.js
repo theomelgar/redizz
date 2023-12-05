@@ -12,11 +12,7 @@ export const Controller = ({
   setHideController,
 }) => {
   return (
-    <div
-      className="fixed top-0 left-0 z-10
-  bg-gradient-radial from-fuchsia-500 to-black/90 w-full  p-2 overflow-auto rounded-lg
-  md:w-[310px] md:h-[320px] md:top-10 md:left-10"
-    >
+    <div>
       <div
         className="absolute top-0 right-4 text-5xl"
         role="button"
@@ -116,7 +112,7 @@ export const Controller = ({
             </Button>
           )}
         </div>
-        <label className="text-bold text-lg">
+        <label className="text-lg font-bold p-2">
           Selecione o tipo de refazer:
         </label>
         <select

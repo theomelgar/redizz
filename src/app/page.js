@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { Button } from "./components/button";
 import { getRandomGradient, getRandomSize } from "@/randoms";
 import { Controller } from "./components/controller";
+import Draggable from "react-draggable";
 
 export default function Home() {
   const [circles, setCircles] = useState([]);
@@ -112,43 +113,53 @@ export default function Home() {
   return (
     <main>
       {hideController ? (
-        <div
-          className="fixed top-0 left-0 z-10
+        <Draggable>
+          <div
+            className="fixed top-0 left-0 z-10
         bg-gradient-radial from-fuchsia-500 to-black/90 w-full h-[30px] p-2 overflow-auto rounded-lg
         md:w-[310px] md:top-10 md:left-10"
-        >
-          <div
-            className="absolute top-0 right-4 text-5xl"
-            role="button"
-            onClick={() => setHideController(false)}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
+            <div
+              className="absolute top-0 right-4 text-5xl"
+              role="button"
+              onClick={() => setHideController(false)}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"
-              />
-            </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"
+                />
+              </svg>
+            </div>
           </div>
-        </div>
+        </Draggable>
       ) : (
-        <Controller
-          circleId={circleId}
-          handleUndo={handleUndo}
-          lastAction={lastAction}
-          handleClear={handleClear}
-          handleRedo={handleRedo}
-          unlimitedRedo={unlimitedRedo}
-          setUnlimitedRedo={setUnlimitedRedo}
-          setHideController={setHideController}
-        />
+        <Draggable>
+          <div
+            className="fixed top-0 left-0 z-10
+              bg-gradient-radial from-fuchsia-500 to-black/90 w-full  p-2 overflow-auto rounded-lg
+              md:w-[310px] md:h-[320px] md:top-10 md:left-10"
+          >
+            <Controller
+              circleId={circleId}
+              handleUndo={handleUndo}
+              lastAction={lastAction}
+              handleClear={handleClear}
+              handleRedo={handleRedo}
+              unlimitedRedo={unlimitedRedo}
+              setUnlimitedRedo={setUnlimitedRedo}
+              setHideController={setHideController}
+            />
+          </div>
+        </Draggable>
       )}
 
       <div
