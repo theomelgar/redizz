@@ -1,7 +1,15 @@
 import React from "react";
 import { Button } from "./button";
 
-export const Controller = ({}) => {
+export const Controller = ({
+  circleId,
+  handleUndo,
+  lastAction,
+  handleClear,
+  handleRedo,
+  unlimitedRedo,
+  setUnlimitedRedo,
+}) => {
   return (
     <div
       className="fixed top-0 left-0 z-10
