@@ -9,6 +9,7 @@ export const Controller = ({
   handleRedo,
   unlimitedRedo,
   setUnlimitedRedo,
+  setHideController,
 }) => {
   return (
     <div
@@ -16,6 +17,13 @@ export const Controller = ({
   bg-gradient-radial from-fuchsia-500 to-black/90 w-full  p-2 overflow-auto rounded-lg
   md:w-[310px] md:h-[320px] md:top-10 md:left-10"
     >
+      <div
+        className="absolute top-0 right-4 text-5xl"
+        role="button"
+        onClick={() => setHideController(true)}
+      >
+        -
+      </div>
       <div className="flex items-center justify-center gap-x-4 p-2 text-white flex-wrap">
         {"Clicks -> "}
         <span className="text-3xl rounded-md p-3">{circleId}</span>
