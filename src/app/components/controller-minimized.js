@@ -1,12 +1,12 @@
 import React from "react";
 
-export const ControllerMinimized = () => {
+export const ControllerMinimized = ({setHideController}) => {
   return (
     
       <div
         className="absolute top-0 right-4 text-5xl"
         role="button"
-        onTouchStartStart={() => setHideController(false)}
+        onClick ={() => setHideController(false)}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

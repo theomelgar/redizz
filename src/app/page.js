@@ -169,7 +169,7 @@ export default function Home() {
               bg-gradient-radial from-fuchsia-500 to-black/90 h-[30px] p-2 overflow-auto rounded-lg
               w-full md:top-10 md:left-10"
           >
-            <ControllerMinimized />
+            <ControllerMinimized setHideController={setHideController} />
           </div>
         ) : (
           <Draggable>
@@ -178,21 +178,27 @@ export default function Home() {
               bg-gradient-radial from-fuchsia-500 to-black/90 h-[30px] p-2 overflow-auto rounded-lg
               w-[310px] md:top-10 md:left-10"
             >
-              <ControllerMinimized />
+              <ControllerMinimized setHideController={setHideController} />
             </div>
           </Draggable>
         )
       ) : isMobile ? (
-        <MobileController
-          circleId={circleId}
-          handleUndo={handleUndo}
-          lastAction={lastAction}
-          handleClear={handleClear}
-          handleRedo={handleRedo}
-          unlimitedRedo={unlimitedRedo}
-          setUnlimitedRedo={setUnlimitedRedo}
-          setHideController={setHideController}
-        ></MobileController>
+        <div
+          className="fixed top-0 left-0 z-10
+        bg-gradient-radial from-fuchsia-500 to-black/90 p-2 overflow-auto rounded-lg
+        md:h-[320px] md:top-10 md:left-10"
+        >
+          <MobileController
+            circleId={circleId}
+            handleUndo={handleUndo}
+            lastAction={lastAction}
+            handleClear={handleClear}
+            handleRedo={handleRedo}
+            unlimitedRedo={unlimitedRedo}
+            setUnlimitedRedo={setUnlimitedRedo}
+            setHideController={setHideController}
+          ></MobileController>
+        </div>
       ) : (
         <Draggable>
           <div
@@ -217,7 +223,7 @@ export default function Home() {
       {isMobile ? (
         <div
           ref={containerRef}
-          className="w-screen h-screen bg-slate-50  overflow-x-hidden"
+          className="w-full h-screen bg-slate-50  overflow-x-hidden"
           onClick={handleClickMobile}
         >
           {circles.map((circle) => (
@@ -234,7 +240,7 @@ export default function Home() {
               }}
               className={`
             rounded-full items-center 
-           justify-center flex absolute
+           justify-center flex absolute   overflow-x-hidden
            `}
             ></div>
           ))}
@@ -258,7 +264,7 @@ export default function Home() {
                 transform: circle.animate ? "scale(0)" : "scale(1)",
               }}
               className={`
-                rounded-full items-center 
+                rounded-full items-center
                 justify-center flex absolute
            `}
             ></div>

@@ -12,9 +12,7 @@ export const MobileController = ({
   setHideController,
 }) => {
   return (
-    <div className="mobile-fixed-top z-10
-    bg-gradient-radial from-fuchsia-500 to-black/90 p-2 overflow-auto rounded-lg
-    md:h-[320px] md:top-10 md:left-10">
+    <div >
       <div
         className="absolute top-0 right-4 text-5xl"
         role="button"
